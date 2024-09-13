@@ -41,8 +41,8 @@ export default async function Login({
       .eq("is_home", true)
       .single()
 
-    if (error || !homeWorkspace) {
-      throw new Error(error?.message || "Home workspace not found")
+    if (!homeWorkspace) {
+      throw new Error(error.message)
     }
 
     return redirect(`/${homeWorkspace.id}/chat`)
@@ -72,8 +72,10 @@ export default async function Login({
       .eq("is_home", true)
       .single()
 
-    if (homeWorkspaceError || !homeWorkspace) {
-      throw new Error(homeWorkspaceError?.message || "Home workspace not found")
+    if (!homeWorkspace) {
+      throw new Error(
+        homeWorkspaceError?.message || "An unexpected error occurred"
+      )
     }
 
     return redirect(`/${homeWorkspace.id}/chat`)
