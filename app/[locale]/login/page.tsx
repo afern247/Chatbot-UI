@@ -34,18 +34,46 @@ export default async function Login({
   const session = (await supabase.auth.getSession()).data.session
 
   if (session) {
-    const { data: homeWorkspace, error } = await supabase
+    const { data: homeWorkspaces, error } = await supabase
       .from("workspaces")
       .select("*")
       .eq("user_id", session.user.id)
       .eq("is_home", true)
-      .single()
 
-    if (!homeWorkspace) {
+    if (error) {
       throw new Error(error.message)
     }
 
-    return redirect(`/${homeWorkspace.id}/chat`)
+    if (homeWorkspaces.length === 0) {
+      // No home workspace found, create one
+      const { data: newHomeWorkspace, error: createError } = await supabase
+        .from("workspaces")
+        .insert({
+          user_id: session.user.id,
+          is_home: true,
+          name: "Home",
+          default_context_length: 4000,
+          default_model: "gpt-3.5-turbo",
+          default_prompt: "",
+          default_temperature: 0.7,
+          description: "",
+          embeddings_provider: "openai",
+          include_profile_context: false,
+          include_workspace_instructions: false,
+          instructions: ""
+        })
+        .select()
+        .single()
+
+      if (createError) {
+        throw new Error(createError.message)
+      }
+
+      return redirect(`/${newHomeWorkspace.id}/chat`)
+    } else {
+      // Use the first home workspace if multiple exist
+      return redirect(`/${homeWorkspaces[0].id}/chat`)
+    }
   }
 
   const signIn = async (formData: FormData) => {
