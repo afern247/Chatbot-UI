@@ -4,8 +4,8 @@ const OPENAI_PLATORM_LINK = "https://platform.openai.com/docs/overview"
 
 // OpenAI Models (UPDATED 1/25/24) -----------------------------
 const GPT4o: LLM = {
-  modelId: "gpt-4o",
-  modelName: "GPT-4o",
+  modelId: "chatgpt-4o-latest",
+  modelName: "GPT-4o-latest",
   provider: "openai",
   hostedId: "gpt-4o",
   platformLink: OPENAI_PLATORM_LINK,
