@@ -120,7 +120,7 @@ export const CHAT_SETTING_LIMITS: Record<LLMID, ChatSettingLimits> = {
   },
   "gemma-7b-it": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 8192,
     MAX_CONTEXT_LENGTH: 8192
   },
@@ -128,32 +128,32 @@ export const CHAT_SETTING_LIMITS: Record<LLMID, ChatSettingLimits> = {
   // OPENAI MODELS
   "gpt-3.5-turbo": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 4096,
     MAX_CONTEXT_LENGTH: 4096
     // MAX_CONTEXT_LENGTH: 16385 (TODO: Change this back to 16385 when OpenAI bumps the model)
   },
   "gpt-4-turbo-preview": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 4096,
     MAX_CONTEXT_LENGTH: 128000
   },
   "gpt-4-vision-preview": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 4096,
     MAX_CONTEXT_LENGTH: 128000
   },
   "gpt-4": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 4096,
     MAX_CONTEXT_LENGTH: 8192
   },
   "chatgpt-4o-latest": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 4096,
     MAX_CONTEXT_LENGTH: 128000
   },
@@ -197,7 +197,7 @@ export const CHAT_SETTING_LIMITS: Record<LLMID, ChatSettingLimits> = {
   },
   "llama-2-70b-chat": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 4096,
     MAX_CONTEXT_LENGTH: 4096
   },
@@ -241,13 +241,13 @@ export const CHAT_SETTING_LIMITS: Record<LLMID, ChatSettingLimits> = {
   // NEW OPENAI MODELS
   "o1-preview": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 32768,
     MAX_CONTEXT_LENGTH: 128000
   },
   "o1-mini": {
     MIN_TEMPERATURE: 0.0,
-    MAX_TEMPERATURE: 2.0,
+    MAX_TEMPERATURE: 1.0,
     MAX_TOKEN_OUTPUT_LENGTH: 65536,
     MAX_CONTEXT_LENGTH: 128000
   }
